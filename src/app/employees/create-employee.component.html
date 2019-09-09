@@ -1,0 +1,69 @@
+<form #employeeForm="ngForm" (ngSubmit)="createEmployee(employeeForm)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">create an employee</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label for="firstname">First name</label>
+        <input id="firstname" required type="text" name="firstname" [(ngModel)]="firstname" type="text"
+          class="form-control" #firstNameControl="ngModel">
+        <!--use name attribute value as property to track the form value-->
+
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last name</label>
+        <input id="lastname" required type="text" name="lastname" [(ngModel)]="lastname" type="text"
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input name="gender" type="radio" value="male" [(ngModel)]="gender">
+            Male
+          </label>
+          <label class="radio-inline">
+            <input name="gender" type="radio" value="female" [(ngModel)]="gender">
+            Female
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="birthdate">BirthDate</label>
+          <input id="birthdate" name="birthdate" [(ngModel)]="birthdate" type="text" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" [(ngModel)]="email" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="number">Phone Number</label>
+        <input id="phonenumber" name="phonenumber" [(ngModel)]="phonenumber" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="contactperference">Contact Perference</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input name="contactperference" type="radio" value="email" [(ngModel)]="contactperference">
+            Email
+          </label>
+          <label class="radio-inline">
+            <input name="contactperference" type="radio" value="phonenumber" [(ngModel)]="contactperference">
+            Phone Number
+          </label>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary">submit</button>
+      </div>
+    </div>
+  </div>
+</form>
