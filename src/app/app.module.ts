@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { CreateEmployeeComponent } from './employees/create-employee.component';
+import { EmployeeService } from './employees/employee.service';
 
 const appRoutes: Routes = [
   { path: 'employees', component: EmployeesComponent },
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
