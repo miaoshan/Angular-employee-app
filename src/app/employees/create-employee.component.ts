@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Employee } from '../models/employee.model';
 
 @Component({
   selector: 'app-create-employee',
@@ -7,13 +8,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-employee.component.scss']
 })
 export class CreateEmployeeComponent implements OnInit {
-
+  employee: Employee = {
+    id: null,
+    birthDate: null,
+    firstName: null,
+    lastName: null,
+    gender: null,
+    email: null,
+    phoneNumber: null,
+  }
   constructor() { }
 
   ngOnInit() {
   }
 
-  createEmployee(employeeForm: NgForm): void {
-    console.log(employeeForm.value);
+  createEmployee(newEmployee: Employee): void {
+    console.log(newEmployee);
   }
 }
