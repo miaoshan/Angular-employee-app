@@ -9,6 +9,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { CreateEmployeeComponent } from './employees/create-employee.component';
 import { EmployeeService } from './employees/employee.service';
 import { DisplayEmployeeComponent } from './employees/display-employee.component';
+import { EmployeeFilterPipe } from './employees/employee-filter.pipe';
 
 const appRoutes: Routes = [
   { path: 'employees', component: EmployeesComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     EmployeesComponent,
     CreateEmployeeComponent,
-    DisplayEmployeeComponent
+    DisplayEmployeeComponent,
+    EmployeeFilterPipe,
   ],
   imports: [
     BrowserModule,

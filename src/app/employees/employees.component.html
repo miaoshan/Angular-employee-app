@@ -1,4 +1,8 @@
 <p>employees list!</p>
-<div *ngFor="let employee of employees">
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Search By FirstName" style="width:300px"
+    [(ngModel)]="searchTerm" />
+</div>
+<div *ngFor="let employee of employees | employeeFilter:searchTerm">
   <app-display-employee [employee]="employee"></app-display-employee>
 </div>

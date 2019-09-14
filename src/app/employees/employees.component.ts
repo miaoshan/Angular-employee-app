@@ -11,6 +11,7 @@ import { EmployeeService } from './employee.service';
 export class EmployeesComponent implements OnInit {
 
   employees: Employee[];
+  searchTerm: string;
 
   constructor(private _employeeService: EmployeeService) { }
 
