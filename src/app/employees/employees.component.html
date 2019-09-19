@@ -3,6 +3,9 @@
   <input type="text" class="form-control" placeholder="Search By FirstName" style="width:300px"
     [(ngModel)]="searchTerm" />
 </div>
+<div class="form-group">
+  <button (click)="changeEmployeeFirstName()" class="btn btn-primary">change employee firstname</button>
+</div>
 <div *ngFor="let employee of employees | employeeFilter:searchTerm">
   <app-display-employee [employee]="employee"></app-display-employee>
 </div>

@@ -19,4 +19,9 @@ export class EmployeesComponent implements OnInit {
     this.employees = this._employeeService.getEmployees();
   }
 
+  changeEmployeeFirstName() {
+    const newEmployeeArray: Employee[] = Object.assign([], this.employees);
+    newEmployeeArray[0].firstName = 'Lucy';
+    this.employees = newEmployeeArray;
+  }
 }
