@@ -11,17 +11,36 @@ import { EmployeeService } from './employee.service';
 export class EmployeesComponent implements OnInit {
 
   employees: Employee[];
-  searchTerm: string;
+  filteredEmployees: Employee[];
+  private _searchTerm: string;
+  get searchTerm(): string {
+    return this._searchTerm;
+  }
+  set searchTerm(value: string) {
+    this._searchTerm = value;
+    this.filteredEmployees = this.filterEmployees(value)
+  }
 
+  filterEmployees(searchString: string) {
+    return this.employees.filter(employee =>
+      employee.firstName.toLowerCase().indexOf(searchString.toLocaleLowerCase()) !== -1);
+
+  }
   constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employees = this._employeeService.getEmployees();
+    this.filteredEmployees = this.employees;
   }
 
   changeEmployeeFirstName() {
-    const newEmployeeArray: Employee[] = Object.assign([], this.employees);
-    newEmployeeArray[0].firstName = 'Lucy';
-    this.employees = newEmployeeArray;
+    this.employees[0].firstName = "Patrick";
+    this.filteredEmployees = this.filterEmployees(this.searchTerm);
+    // const newEmployeeArray: Employee[] = Object.assign([], this.employees);
+    // newEmployeeArray[0].firstName = 'Lucy';
+    // this.employees = newEmployeeArray;
+
+
+
   }
 }

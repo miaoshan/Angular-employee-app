@@ -6,6 +6,6 @@
 <div class="form-group">
   <button (click)="changeEmployeeFirstName()" class="btn btn-primary">change employee firstname</button>
 </div>
-<div *ngFor="let employee of employees | employeeFilter:searchTerm">
+<div *ngFor="let employee of filteredEmployees | employeeFilter:searchTerm">
   <app-display-employee [employee]="employee"></app-display-employee>
 </div>
