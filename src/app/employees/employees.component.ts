@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { EmployeeService } from './employee.service';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +26,8 @@ export class EmployeesComponent implements OnInit {
       employee.firstName.toLowerCase().indexOf(searchString.toLocaleLowerCase()) !== -1);
 
   }
-  constructor(private _employeeService: EmployeeService) { }
+  constructor(private _employeeService: EmployeeService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.employees = this._employeeService.getEmployees();
@@ -39,8 +40,15 @@ export class EmployeesComponent implements OnInit {
     // const newEmployeeArray: Employee[] = Object.assign([], this.employees);
     // newEmployeeArray[0].firstName = 'Lucy';
     // this.employees = newEmployeeArray;
+  }
 
+  onMouseMove() {
 
+  }
 
+  onClick(employeeId: number) {
+    this._router.navigate(['/employees', employeeId], {
+      queryParams: { 'searchTerm': this.searchTerm, 'testParam': 'testValue' }
+    })
   }
 }
